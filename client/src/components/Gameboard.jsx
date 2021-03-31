@@ -8,13 +8,16 @@ class Gameboard extends React.Component {
       ongoing: false,
       circles: [{id: 1},{id: 2},{id: 3}],
       timer: 0,
-      actionbutton: 'Start'
+      actionbutton: 'Start',
+      idHolder: 4,
+      goTime: 'null'
     };
     this.actionbutton = this.actionbutton.bind(this);
     this.gameStart = this.gameStart.bind(this);
     this.gameStop = this.gameStop.bind(this);
-
+    this.addCircle = this.addCircle.bind(this);
     this.removeCircle = this.removeCircle.bind(this);
+    this.timerAdd = this.timerAdd.bind(this);
   }
 
   actionbutton() {
@@ -31,16 +34,30 @@ class Gameboard extends React.Component {
       ongoing: true,
       actionbutton: 'Pause'
     })
+    this.timerAdd();
   }
   gameStop() {
     this.setState({
       ongoing: false,
       actionbutton: 'Start'
     })
+    clearInterval(this.state.goTime)
   }
 
   addCircle(newCircle) {
-    this.setState({circles: [...this.state.circles, newCircle]})
+    console.log('hello')
+    this.setState({
+      circles: [...this.state.circles, newCircle],
+      idHolder: this.state.idHolder + 1
+    })
+  }
+
+  timerAdd() {
+    console.log('1',this)
+    var goTime = setInterval(function() {
+      this.addCircle({id: this.state.idHolder})
+    }.bind(this), 1000)
+    this.setState({goTime: goTime})
   }
 
   removeCircle(targetCircle) {
@@ -57,16 +74,16 @@ class Gameboard extends React.Component {
     this.setState({circles: this.state.circles})
   }
 
-  componentDidUpdate(prevProps) {
-    if(this.Props !== prevProps) {
-      while(this.state.ongoing === true) {
-        var someNum = 4;
-        setInterval(this.addCircle({id: someNum}),3000)
-        someNum++;
-        console.log(someNum)
-      }
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   if(this.Props !== prevProps) {
+  //     while(this.state.ongoing === true) {
+  //       var someNum = 4;
+  //       setInterval(this.addCircle({id: someNum}),3000)
+  //       someNum++;
+  //       console.log(someNum)
+  //     }
+  //   }
+  // }
 
   render() {
     return(

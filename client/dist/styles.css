@@ -1,0 +1,53 @@
+body {
+  background: gray;
+}
+
+h1 {
+  color: turquoise;
+  text-align: center;
+}
+
+#gameboard {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.gameSpace {
+  color: green;
+  border: 1px solid green;
+  height:600px;
+  width: 1000px;
+  display:flex;
+  justify-content: center;
+}
+
+#instructionSpace {
+  color:yellow;
+}
+
+.instructionsheader {
+  margin-top: 1%;
+  color: red;
+  font-size: 40px;
+}
+
+
+
+
+.insideboard {
+  position: relative;
+  height: 100%;
+  width:100%;
+}
+
+.circle {
+  position:absolute;
+  border: 1px solid pink;
+  border-radius: 75px;
+  height: 75px;
+  width: 75px;
+  color:blue;
+  left: 13%;
+  top: 1%;
+}

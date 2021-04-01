@@ -10,7 +10,7 @@ class HowTo extends React.Component {
     return(
       <div id='instructionSpace'>
       <div className='instructionsheader'>How to play</div>
-      <div className='instructions'>Some words</div>
+      <div className='instructions'>One day there will be meaningful information here</div>
     </div>
     )
   }

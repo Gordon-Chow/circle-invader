@@ -30,7 +30,7 @@ h1 {
   margin-bottom: 5px;
 }
 
-#buttonholder {
+.buttonholder {
   /* border: 1px solid green */
   width:1000px;
   color:turquoise;
@@ -39,6 +39,43 @@ h1 {
   justify-content: flex-start;
   /* margin-right: 5px; */
   /* margin-left: 5px; */
+}
+
+#selectedMode {
+  width: 101.99px;
+  /* border: 1px solid turquoise; */
+  margin-left: 3px;
+  margin-right: 3px;
+  /* color: turquoise; */
+  /* padding-top: 2px; */
+  /* padding-left: 6px; */
+  /* padding-right: 6px; */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* text-align: center; */
+}
+
+#gameinfoholder {
+  margin-left: 100px;
+  width: 150px;
+}
+
+/* #gameinfoholderholder {
+  display:flex;
+  justify-content: flex-end;
+} */
+
+#gamestatus {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 75px;
+  /* color:green */
+}
+
+#settingsholder {
+  color: turquoise;
+  border: turquoise;
+  position: relative;
 }
 
 #actionbutton {
@@ -81,6 +118,21 @@ h1 {
   border: 1px solid white;
 }
 
+#settingheader {
+  margin-left: 3px;
+  width: 100px;
+  text-align: center;
+  font-size: 20px;
+}
+
+#timerheader {
+  margin-left: 3px;
+  width: 100px;
+  text-align: center;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
 .modebutton {
   position: relative;
   border:1px solid;
@@ -91,18 +143,25 @@ h1 {
   align-items: center;
   margin-right: 3px;
   margin-left: 3px;
+  margin-top:6px;
+}
+
+
+.modebutton:hover {
+  color:white;
+  border: 1px solid white;
 }
 
 
 
 
 #instructionSpace {
-  color:yellow;
+  color:purple;
 }
 
 .instructionsheader {
   margin-top: 1%;
-  color: red;
+  color: purple;
   font-size: 40px;
 }
 

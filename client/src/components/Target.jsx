@@ -9,7 +9,7 @@ class Target extends React.Component {
 
   remove(e) {
     e.stopPropagation();
-    console.log('remove')
+    // console.log('remove')
     this.props.removeCircle(this.props.circle.id)
   }
 

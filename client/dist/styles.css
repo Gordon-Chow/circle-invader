@@ -1,10 +1,11 @@
 body {
-  background: gray;
+  background: black;
 }
 
 h1 {
   color: turquoise;
   text-align: center;
+  font-size: 60px;
 }
 
 #gameboard {
@@ -15,12 +16,85 @@ h1 {
 
 .gameSpace {
   color: green;
-  border: 1px solid green;
+  border: 1px solid turquoise;
   height:600px;
   width: 1000px;
   display:flex;
   justify-content: center;
 }
+
+#buttonholderholder {
+  display: flex;
+  justify-content: center;
+  width:100%;
+  margin-bottom: 5px;
+}
+
+#buttonholder {
+  /* border: 1px solid green */
+  width:1000px;
+  color:turquoise;
+  border: turquoise;
+  display: flex;
+  justify-content: flex-start;
+  /* margin-right: 5px; */
+  /* margin-left: 5px; */
+}
+
+#actionbutton {
+  position: relative;
+  width: 100px;
+  height:50px;
+  background-color:transparent;
+  margin-right: 5px;
+  border: 1px solid;
+  /* color:turquoise; */
+  /* text-align: center; */
+  /* vertical-align: middle; */
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  /* margin: 0; */
+}
+
+#actionbutton:hover {
+  color:white;
+  border:1px solid white;
+}
+
+#resetbutton {
+  border: 1px solid;
+  /* color: turquoise; */
+  position: relative;
+  width: 100px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-right: 5px; */
+  /* margin-left: 5px; */
+  /* margin-top: 5px; */
+}
+
+#resetbutton:hover {
+  color: white;
+  border: 1px solid white;
+}
+
+.modebutton {
+  position: relative;
+  border:1px solid;
+  width: 100px;
+  height:50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3px;
+  margin-left: 3px;
+}
+
+
+
 
 #instructionSpace {
   color:yellow;
@@ -37,17 +111,23 @@ h1 {
 
 .insideboard {
   position: relative;
+  /* background-color: rebeccapurple; */
   height: 100%;
   width:100%;
 }
 
 .circle {
   position:absolute;
-  border: 1px solid pink;
+  border: 1px solid blueviolet;
+  background-color: plum;
   border-radius: 75px;
   height: 75px;
   width: 75px;
   color:blue;
-  left: 13%;
-  top: 1%;
+  /* left: 3%; */
+  /* top: 1%; */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

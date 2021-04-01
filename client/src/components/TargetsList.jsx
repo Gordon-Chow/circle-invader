@@ -19,10 +19,14 @@ import Target from './Target.jsx'
 // }
 
 var TargetsList = (props) => (
-  props.circles.map(circle => {
-    return <Target circle={circle} removeCircle={props.removeCircle}/>
-  })
-  // console.log(props.circles)
+  <div className='insideboard'>
+
+    {props.circles.map((circle,i) => {
+      return <Target key={i} circle={circle} removeCircle={props.removeCircle} ongoing={props.ongoing}/>
+    })
+    // console.log(props.circles)
+  }
+  </div>
   )
 
 export default TargetsList;

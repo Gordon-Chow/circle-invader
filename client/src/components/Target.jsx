@@ -3,9 +3,7 @@ import React from 'react';
 class Target extends React.Component {
   constructor(props) {
     super(props);
-    this.state={
-      id: this.props.circle.id
-    };
+    this.state={};
     this.remove=this.remove.bind(this)
   }
 
@@ -13,16 +11,18 @@ class Target extends React.Component {
     e.stopPropagation();
     console.log('remove')
     this.props.removeCircle(this.props.circle.id)
-    console.log('state',this.state.id)
-    console.log('prop', this.props.circle.id)
   }
 
   render() {
-    console.log(this.props.circle)
+    // console.log(this.props.circle)
     return(
-      <div className='insideboard'>
-        <div className='circle' onClick={this.remove}>{this.props.circle.id}</div>
-      </div>
+      // <div className='insideboard'>
+        <div className='circle' onClick={this.remove} style={
+          {left: `${this.props.circle.left}%`,
+           top: `${this.props.circle.top}%`
+        }
+        }>Be Productive</div>
+      // </div>
     )
 
   }

@@ -6,11 +6,14 @@ class Gameboard extends React.Component {
     super();
     this.state = {
       ongoing: false,
-      circles: [{id: 1},{id: 2},{id: 3}],
+      circles: [],
       timer: 0,
       actionbutton: 'Start',
-      idHolder: 4,
-      goTime: 'null'
+      idHolder: 1,
+      goTime: 'null',
+      mode:'Custom',
+      timeleft: 10,
+      gametimer: 'null'
     };
     this.actionbutton = this.actionbutton.bind(this);
     this.gameStart = this.gameStart.bind(this);
@@ -18,6 +21,8 @@ class Gameboard extends React.Component {
     this.addCircle = this.addCircle.bind(this);
     this.removeCircle = this.removeCircle.bind(this);
     this.timerAdd = this.timerAdd.bind(this);
+    this.gamereset = this.gamereset.bind(this);
+    this.changeMode = this.changeMode.bind(this);
   }
 
   actionbutton() {
@@ -30,22 +35,30 @@ class Gameboard extends React.Component {
   }
 
   gameStart() {
-    this.setState({
-      ongoing: true,
-      actionbutton: 'Pause'
-    })
-    this.timerAdd();
+    if(this.state.timeleft !== 0) {
+      this.setState({
+        ongoing: true,
+        actionbutton: 'Pause'
+      })
+      this.timerAdd();
+    }
   }
+
   gameStop() {
     this.setState({
       ongoing: false,
       actionbutton: 'Start'
     })
     clearInterval(this.state.goTime)
+    clearInterval(this.state.gametimer)
   }
 
-  addCircle(newCircle) {
-    console.log('hello')
+  addCircle() {
+    var newCircle = {
+      id: this.state.idHolder,
+      left: Math.floor(Math.random()*90),
+      top: Math.floor(Math.random()*85)
+    }
     this.setState({
       circles: [...this.state.circles, newCircle],
       idHolder: this.state.idHolder + 1
@@ -53,27 +66,56 @@ class Gameboard extends React.Component {
   }
 
   timerAdd() {
-    console.log('1',this)
+    var mode = {Easy: 1000, Normal: 500, Hard: 350, Custom: 60000}
     var goTime = setInterval(function() {
-      this.addCircle({id: this.state.idHolder})
+      this.addCircle()
+    }.bind(this), mode[this.state.mode])
+
+    var timetick = setInterval(function() {
+      // console.log(this.state.timeleft)
+      // this.state.timeleft = this.state.timeleft - 1
+      this.setState({timeleft: this.state.timeleft-1})
+      if(this.state.timeleft === 0) {
+        this.gameStop();
+      }
     }.bind(this), 1000)
-    this.setState({goTime: goTime})
+    this.setState({
+      goTime: goTime,
+      gametimer: timetick
+    })
   }
 
   removeCircle(targetCircle) {
-    //take out the circle
-    console.log('target', targetCircle)
-    for(let i = 0; i < this.state.circles.length; i++) {
-      // console.log(this.state.circles[i])
-      if(this.state.circles[i].id === targetCircle) {
-        let removed = this.state.circles.splice(i,1);
-        // console.log('removed', this.state.circles[i])
-        console.log('removed', removed)
+    if(this.state.ongoing === true){
+      console.log('target', targetCircle)
+      for(let i = 0; i < this.state.circles.length; i++) {
+        // console.log(this.state.circles[i])
+        if(this.state.circles[i].id === targetCircle) {
+          let removed = this.state.circles.splice(i,1);
+          // console.log('removed', this.state.circles[i])
+          console.log('removed', removed)
+        }
       }
+      this.setState({circles: this.state.circles})
+      //take out the circle
     }
-    this.setState({circles: this.state.circles})
+
   }
 
+  gamereset() {
+    this.gameStop()
+    this.setState({
+      circles: [],
+      idHolder: 1,
+      timeleft: 10
+    })
+  }
+
+  changeMode(e) {
+    console.log(e.target.outerText)
+    this.setState({mode: e.target.outerText})
+
+  }
   // componentDidUpdate(prevProps) {
   //   if(this.Props !== prevProps) {
   //     while(this.state.ongoing === true) {
@@ -88,11 +130,21 @@ class Gameboard extends React.Component {
   render() {
     return(
       <div>
-        <button onClick={this.actionbutton}>{this.state.actionbutton}</button>
+        <div id='buttonholderholder'>
+          <div id='buttonholder'>
+        <div id='actionbutton' onClick={this.actionbutton}>{this.state.actionbutton}</div>
+        <div id='resetbutton' onClick={this.gamereset}>Reset</div>
+        <div id='modedisplay'>Mode: {this.state.mode}</div>
+        <div> Time Remaining: {this.state.timeleft}</div>
+        <div className='modebutton' onClick={this.changeMode}>Easy</div>
+        <div className='modebutton' onClick={this.changeMode}>Normal</div>
+        <div className='modebutton' onClick={this.changeMode}>Hard</div>
+          </div>
+        </div>
         <div id='gameboard'>
           <div className='gameSpace'>
             {/* {console.log(TargetsList)} */}
-            <TargetsList circles={this.state.circles} removeCircle={this.removeCircle}/>
+            <TargetsList circles={this.state.circles} ongoing={this.state.ongoing} removeCircle={this.removeCircle}/>
           </div>
         </div>
       </div>
@@ -102,3 +154,4 @@ class Gameboard extends React.Component {
 
 
 export default Gameboard;
+

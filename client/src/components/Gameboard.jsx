@@ -17,7 +17,8 @@ class Gameboard extends React.Component {
       circlesRemoved: 0,
       freshgame: true,
       gameOver: false,
-      gameStatus: 'Setup'
+      gameStatus: 'Setup',
+      prevSelectedTime: '',
     };
     this.actionbutton = this.actionbutton.bind(this);
     this.gameStart = this.gameStart.bind(this);
@@ -124,7 +125,7 @@ class Gameboard extends React.Component {
     this.setState({
       circles: [],
       idHolder: 1,
-      timeleft: 10,
+      timeleft:this.state.prevSelectedTime,
       circlesRemoved: 0,
       freshgame: true,
       gameOver: false,
@@ -145,7 +146,8 @@ class Gameboard extends React.Component {
     if(this.state.freshgame === true) {
       // console.log(e.target.outerText)
       this.setState({
-      timeleft: Number(e.target.outerText.slice(0,e.target.outerText.length-1))
+      timeleft: Number(e.target.outerText.slice(0,e.target.outerText.length-1)),
+      prevSelectedTime: Number(e.target.outerText.slice(0,e.target.outerText.length-1))
       })
     }
   }

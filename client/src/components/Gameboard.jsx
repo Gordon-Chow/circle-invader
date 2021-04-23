@@ -12,13 +12,13 @@ class Gameboard extends React.Component {
       idHolder: 1,
       goTime: 'null',
       mode:'Normal',
-      timeleft: 10,
+      timeleft: 30,
       gametimer: 'null',
       circlesRemoved: 0,
       freshgame: true,
       gameOver: false,
       gameStatus: 'Setup',
-      prevSelectedTime: '',
+      prevSelectedTime: '30',
     };
     this.actionbutton = this.actionbutton.bind(this);
     this.gameStart = this.gameStart.bind(this);

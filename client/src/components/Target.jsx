@@ -21,7 +21,7 @@ class Target extends React.Component {
           {left: `${this.props.circle.left}%`,
            top: `${this.props.circle.top}%`
         }
-        }>Be Productive</div>
+        }></div>
       // </div>
     )
 

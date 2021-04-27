@@ -1,4 +1,4 @@
-# Circle Invader
+# Circle Invaders
 
 A game for users to relax or practice their mouse movement and reflexes
 

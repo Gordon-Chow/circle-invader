@@ -33,6 +33,6 @@ A game for users to relax or practice their mouse movement and reflexes
 ![Imgur](https://i.imgur.com/g0jRO2F.gif)
 
 
-### Change modes to something more to your liking during setup
+### Change modes to your preference during setup
 
 ![Imgur](https://i.imgur.com/fR1lQYG.gif)

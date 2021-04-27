@@ -213,7 +213,7 @@ class Gameboard extends React.Component {
           </div>
         <div id='gamestatus'>Game Status: {this.state.gameStatus}</div>
         </div>
-          <div id='selectedMode'> Selected: {this.state.mode}</div>
+          <div id='selectedMode'></div>
         </div>
         <div id='gameboard'>
           <div className='gameSpace'>

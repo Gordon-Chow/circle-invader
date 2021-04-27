@@ -4,11 +4,12 @@ A game for users to relax or practice their mouse movement and reflexes
 
 ## Installation
   1. Fork the repository
-  2. clone it down to your local machine with ```git clone [git repo url]```
-  3. run ```npm install```
-  4. run ```npm run webpack```
-  5. run ```npm run nodemon```
-  6. open ```localhost:3000``` on google chrome
+  2. clone it down to your local machine with ```git clone [git repo url]``` in your terminal
+  3. change your directory into the newly cloned folder ```cd circle-invader```
+  4. run ```npm install```
+  5. run ```npm run webpack```
+  6. run ```npm run nodemon```
+  7. open ```localhost:3000``` on google chrome
 
 ## Features and Demo
 
